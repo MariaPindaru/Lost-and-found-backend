@@ -42,7 +42,7 @@ export const Routes = [
         action: "login"
     },
     {
-        method: "put",
+        method: "post",
         route: "/register",
         controller: UserController,
         action: "register",
