@@ -63,7 +63,7 @@ export const Routes = [
         action: "one"
     },
     {
-        method: "post",
+        method: "put",
         route: "/usersdetails",
         controller: UserDetailsController,
         action: "save"
@@ -95,7 +95,7 @@ export const Routes = [
         action: "one"
     },
     {
-        method: "post",
+        method: "put",
         route: "/posts",
         controller: PostController,
         action: "save"

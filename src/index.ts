@@ -1,16 +1,23 @@
 import "reflect-metadata";
-import {createConnection} from "typeorm";
+import { createConnection } from "typeorm";
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import {Request, Response} from "express";
-import {Routes} from "./routes";
-import {User} from "./entity/User";
+import { Request, Response } from "express";
+import { Routes } from "./routes";
+import { User } from "./entity/User";
 
 createConnection().then(async connection => {
 
     // create express app
     const app = express();
-    app.use(bodyParser.json());
+
+    var bodyParser = require('body-parser');
+    app.use(bodyParser.json({ limit: "50mb" }));
+    app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
+
+    // app.use(bodyParser.json());
+    // app.use(express.json({ limit: '1000mb' }));
+    // app.use(express.urlencoded({ limit: '1000mb' }));
 
     // register express routes from defined application routes
     Routes.forEach(route => {

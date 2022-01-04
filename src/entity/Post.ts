@@ -7,6 +7,9 @@ export class Post {
     id: number;
 
     @Column()
+    type: string;
+
+    @Column()
     user_id: number;
 
     @Column()
@@ -20,4 +23,7 @@ export class Post {
 
     @Column()
     date: Date;
+
+    @Column()
+    picture: string;
 }
